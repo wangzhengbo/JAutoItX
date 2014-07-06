@@ -6,7 +6,7 @@ import com.sun.jna.Native;
 
 public class Clip extends AutoItX {
 	public static int CLIP_GET_BUF_SIZE = 8 * 1024;
-	
+
 	private Clip() {
 		// Do nothing
 	}

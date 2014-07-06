@@ -11,7 +11,7 @@ public final class Mouse extends AutoItX {
 
 	public static final int DEFAULT_MOUSE_CLICK_TIMES = 1;
 	public static final int DEFAULT_MOUSE_MOVE_SPEED = 10;
-	
+
 	private Mouse() {
 		// Do nothing
 	}
@@ -734,9 +734,6 @@ public final class Mouse extends AutoItX {
 	 * up the context menu, whether the buttons are swapped or not. See the
 	 * table in MouseClick for more explaination
 	 * 
-	 * @param button
-	 *            The button to click: "left", "right", "middle", "main",
-	 *            "menu", "primary", "secondary".
 	 * @param x1
 	 *            The x coord to start the drag operation from.
 	 * @param y1

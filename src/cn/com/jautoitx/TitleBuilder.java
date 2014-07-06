@@ -13,7 +13,7 @@ public class TitleBuilder {
 	private TitleBuilder() {
 		// Do nothing
 	}
-	
+
 	/**
 	 * Build window title base on Advanced Window Descriptions.
 	 * 

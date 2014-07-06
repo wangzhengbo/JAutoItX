@@ -4,7 +4,7 @@ public class Misc extends AutoItX {
 	private Misc() {
 		// Do nothing
 	}
-	
+
 	/**
 	 * Checks if the current user has administrator privileges.
 	 * 

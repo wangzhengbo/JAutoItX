@@ -4,7 +4,7 @@ public final class Opt extends AutoItX {
 	private Opt() {
 		// Do nothing
 	}
-	
+
 	/* Default options */
 	/*
 	 * Sets the way coords are used in the caret functions, either absolute
@@ -182,7 +182,7 @@ public final class Opt extends AutoItX {
 	 * Sets the way coords are used in the mouse functions, either absolute
 	 * coords or coords relative to the current active window.
 	 * 
-	 * @param caretCoordMode
+	 * @param mouseCoordMode
 	 *            The way coords are used in the mouse functions.
 	 * @return Returns the value of the previous setting.
 	 */
@@ -202,7 +202,7 @@ public final class Opt extends AutoItX {
 	 * Sets the way coords are used in the pixel functions, either absolute
 	 * coords or coords relative to the current active window.
 	 * 
-	 * @param caretCoordMode
+	 * @param pixelCoordMode
 	 *            The way coords are used in the pixel functions.
 	 * @return Returns the value of the previous setting.
 	 */
@@ -281,7 +281,7 @@ public final class Opt extends AutoItX {
 	 * Specifies if hidden window text can be "seen" by the window matching
 	 * functions.
 	 * 
-	 * @param oldWinDetectHiddenText
+	 * @param detectHiddenText
 	 *            Whether hidden window text can be "seen" by the window
 	 *            matching functions or not, default is false.
 	 * @return Returns the value of the previous setting.

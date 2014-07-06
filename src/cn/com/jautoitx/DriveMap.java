@@ -8,7 +8,7 @@ import com.sun.jna.Native;
 
 public class DriveMap extends AutoItX {
 	public static int DRIVE_MAP_ADD_BUF_SIZE = 1024;
-	
+
 	private DriveMap() {
 		// Do nothing
 	}
@@ -156,9 +156,6 @@ public class DriveMap extends AutoItX {
 	 * @param share
 	 *            The remote share to connect to in the form "\\server\share".
 	 * @param driveMapAddFlags
-	 * @param user
-	 *            The username to use to connect. In the form "username" or
-	 *            "domain\Username".
 	 * @return Returns null if a new mapping could not be created(see
 	 *         getAddError() method). Returns "" if you pass a blank string for
 	 *         device parameter(a connection will made but not mapped to a
@@ -406,7 +403,7 @@ public class DriveMap extends AutoItX {
 			// Unknown error type
 			if (driveMapAddError == null) {
 				driveMapAddError = DriveMapAddError.UNDEFINED;
-				logger.info(String
+				logger.fine(String
 						.format("Unknown error type %d for DriveMapAdd, return %s.%s instead.",
 								errorCode,
 								DriveMapAddError.class.getSimpleName(),

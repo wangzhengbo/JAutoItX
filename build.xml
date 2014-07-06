@@ -55,7 +55,7 @@
 	</target>
 	
 	<target name="generate-doc" depends="clean, prepare">
-		<javadoc destdir="${doc.dir}" encoding="${project.encoding}" docencoding="${project.encoding}">
+		<javadoc destdir="${doc.dir}" encoding="${project.encoding}" docencoding="${doc.encoding}">
 			<packageset dir="${src.dir}">
 				<include name="**"/>
 			</packageset>

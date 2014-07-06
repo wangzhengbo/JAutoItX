@@ -6,7 +6,7 @@ public class Keyboard extends AutoItX {
 	private Keyboard() {
 		// Do nothing
 	}
-	
+
 	/**
 	 * Sends simulated keystrokes to the active window.
 	 * 

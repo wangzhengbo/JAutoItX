@@ -28,7 +28,7 @@ public class Win32 {
 
 	private static final int WM_GETTEXT = 0x000D;
 	private static final int WM_GETTEXTLENGTH = 0x000E;
-	
+
 	private Win32() {
 		// Do nothing
 	}
@@ -252,7 +252,6 @@ public class Win32 {
 	 * 
 	 * @param on
 	 *            Turn on capslock if true, otherwise turn off capslock.
-	 * @return Return true if the capslock is on, otherwise return false.
 	 */
 	public static void setCapslockState(boolean on) {
 		if (Win32.isCapslockOn() ^ on) {

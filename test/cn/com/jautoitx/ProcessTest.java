@@ -179,12 +179,12 @@ public class ProcessTest extends BaseTest {
 
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
-		Assert.assertNull(Process.runAs(USER_NAME, domain,
-				USER_ERROR_PASSWORD, (Integer) null, NOTEPAD));
+		Assert.assertNull(Process.runAs(USER_NAME, domain, USER_ERROR_PASSWORD,
+				(Integer) null, NOTEPAD));
 
 		// run notepad in default mode
-		int pid = Process.runAs(USER_NAME, domain,
-				USER_PASSWORD, (Integer) null, NOTEPAD);
+		int pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
+				(Integer) null, NOTEPAD);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -251,9 +251,8 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in normal mode
-		Assert.assertNull(Process.runAs(USER_NAME, domain,
-				USER_PASSWORD, (RunLogonFlag) null, NOTEPAD + "xxx",
-				RunShowFlag.NORMAL));
+		Assert.assertNull(Process.runAs(USER_NAME, domain, USER_PASSWORD,
+				(RunLogonFlag) null, NOTEPAD + "xxx", RunShowFlag.NORMAL));
 	}
 
 	@Test
@@ -266,8 +265,8 @@ public class ProcessTest extends BaseTest {
 		final IntHolder exitCodeHolder = new IntHolder(Integer.MIN_VALUE);
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, NOTEPAD).getExitCode();
+				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, NOTEPAD).getExitCode();
 			}
 		});
 		thread.start();
@@ -288,9 +287,9 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, null, NOTEPAD,
-						RunShowFlag.HIDE).getExitCode();
+				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, null, NOTEPAD, RunShowFlag.HIDE)
+						.getExitCode();
 			}
 		});
 		thread.start();
@@ -311,9 +310,9 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, null, NOTEPAD,
-						RunShowFlag.MINIMIZE).getExitCode();
+				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, null, NOTEPAD, RunShowFlag.MINIMIZE)
+						.getExitCode();
 			}
 		});
 		thread.start();
@@ -334,8 +333,8 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, null, NOTEPAD, "C:/",
+				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, null, NOTEPAD, "C:/",
 						RunShowFlag.MAXIMIZE).getExitCode();
 			}
 		});
@@ -362,9 +361,9 @@ public class ProcessTest extends BaseTest {
 		final BooleanHolder errorHolder = new BooleanHolder(true);
 		thread = new Thread(new Runnable() {
 			public void run() {
-				RunWaitResult result = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, null, NOTEPAD,
-						workingDir, RunShowFlag.NORMAL);
+				RunWaitResult result = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, null, NOTEPAD, workingDir,
+						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();
 			}
@@ -393,8 +392,8 @@ public class ProcessTest extends BaseTest {
 		errorHolder.value = false;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				RunWaitResult result = Process.runAsWait(USER_NAME,
-						domain, USER_PASSWORD, null, NOTEPAD + "xxx",
+				RunWaitResult result = Process.runAsWait(USER_NAME, domain,
+						USER_PASSWORD, null, NOTEPAD + "xxx",
 						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();

@@ -115,7 +115,7 @@ public class AutoItX {
 		// Initialize AutoIt
 		initAutoItX();
 	}
-	
+
 	protected AutoItX() {
 		// Do nothing
 	}
@@ -128,7 +128,7 @@ public class AutoItX {
 		try {
 			autoItX = loadNativeLibrary();
 
-			logger.info("AutoItX initialized.");
+			logger.fine("AutoItX initialized.");
 		} catch (Throwable e) {
 			logger.warning("Unable to initialize "
 					+ AutoItX.class.getSimpleName());

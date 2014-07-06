@@ -3124,8 +3124,8 @@ public class ControlTest extends BaseTest {
 		String commitCharge = Control.statusbarGetText(TASK_MANAGER_TITLE,
 				null, 3);
 		Assert.assertTrue(commitCharge
-				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE) || commitCharge
-				.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
 
 		// minimize task manager
 		Assert.assertTrue(Win.minimize(TASK_MANAGER_TITLE));
@@ -3133,8 +3133,8 @@ public class ControlTest extends BaseTest {
 		Assert.assertTrue(cpuUsage.startsWith(STATUS_BAR_TEXT_CPU_USAGE));
 		commitCharge = Control.statusbarGetText(TASK_MANAGER_TITLE, null, 3);
 		Assert.assertTrue(commitCharge
-				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE) || commitCharge
-				.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
 
 		// hide task manager
 		Assert.assertTrue(Win.minimize(TASK_MANAGER_TITLE));
@@ -3142,8 +3142,8 @@ public class ControlTest extends BaseTest {
 		Assert.assertTrue(cpuUsage.startsWith(STATUS_BAR_TEXT_CPU_USAGE));
 		commitCharge = Control.statusbarGetText(TASK_MANAGER_TITLE, null, 3);
 		Assert.assertTrue(commitCharge
-				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE) || commitCharge
-				.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
 
 		// close task manager
 		Process.close(pid);

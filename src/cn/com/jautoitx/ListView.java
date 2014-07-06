@@ -26,7 +26,7 @@ public final class ListView extends AutoItX {
 	private static final String LIST_VIEW_SELECT_CLEAR = "SelectClear";
 	private static final String LIST_VIEW_SELECT_INVERT = "SelectInvert";
 	private static final String LIST_VIEW_VIEW_CHANGE = "ViewChange";
-	
+
 	private ListView() {
 		// Do nothing
 	}
@@ -188,9 +188,6 @@ public final class ListView extends AutoItX {
 	 * @param hCtrl
 	 *            The handle of the control to interact with.
 	 * @param stringToFind
-	 * @param subItem
-	 *            In a "Details" view of a ListView32 control, the "item" can be
-	 *            thought of as the "row" and the "subitem" as the "column".
 	 * @return Returns the item index of the string, returns null if the string
 	 *         is not found or window/control could not be found.
 	 */
@@ -599,12 +596,10 @@ public final class ListView extends AutoItX {
 	/**
 	 * Returns the text of the subitems for item.
 	 * 
-	 * @param title
-	 *            The title of the window to access.
-	 * @param text
-	 *            The text of the window to access.
-	 * @param control
-	 *            The control to interact with.
+	 * @param hWnd
+	 *            The handle of the window to access.
+	 * @param hCtrl
+	 *            The handle of the control to interact with.
 	 * @param item
 	 *            In a "Details" view of a ListView32 control, the "item" can be
 	 *            thought of as the "row" and the "subitem" as the "column".
@@ -874,8 +869,6 @@ public final class ListView extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to access.
-	 * @param text
-	 *            The text of the window to access.
 	 * @param control
 	 *            The control to interact with.
 	 * @return Returns false if window/control could not be found, otherwise
@@ -972,8 +965,6 @@ public final class ListView extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to access.
-	 * @param text
-	 *            The text of the window to access.
 	 * @param control
 	 *            The control to interact with.
 	 * @return Returns false if window/control could not be found, otherwise

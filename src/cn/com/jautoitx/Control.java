@@ -53,7 +53,7 @@ public class Control extends AutoItX {
 	private static final int LB_GETTEXT = 393;
 	private static final int LB_GETTEXTLEN = 394;
 	private static final int LB_GETCOUNT = 395;
-	
+
 	private Control() {
 		// Do nothing
 	}
@@ -477,7 +477,7 @@ public class Control extends AutoItX {
 	 * 
 	 * @param hWnd
 	 *            The handle of the window to access.
-	 * @param control
+	 * @param hCtrl
 	 *            The handle of the control to interact with.
 	 * @return Return true if control is visible, otherwise return false.
 	 */
@@ -824,8 +824,6 @@ public class Control extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to access.
-	 * @param text
-	 *            The text of the window to access.
 	 * @param control
 	 *            The control to interact with.
 	 * @param occurrence
@@ -1404,8 +1402,9 @@ public class Control extends AutoItX {
 	 *            The title of the window to access.
 	 * @param control
 	 *            The control to interact with.
-	 * @param int The occurrence ref of the exact string in a ListBox or
-	 *        ComboBox.
+	 * @param occurrence
+	 *            The occurrence ref of the exact string in a ListBox or
+	 *            ComboBox.
 	 * @return Return false if there is an error (such as an invalid
 	 *         window/control), otherwise return true.
 	 */
@@ -3584,10 +3583,9 @@ public class Control extends AutoItX {
 	 *         found.
 	 */
 	public static boolean hide(final String title, final String text,
-			final String controlId) {
+			final String control) {
 		return autoItX.AU3_ControlHide(stringToWString(defaultString(title)),
-				stringToWString(text),
-				stringToWString(defaultString(controlId))) == SUCCESS_RETURN_VALUE;
+				stringToWString(text), stringToWString(defaultString(control))) == SUCCESS_RETURN_VALUE;
 	}
 
 	/**

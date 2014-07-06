@@ -74,18 +74,19 @@ public abstract class BaseTest {
 
 	protected static final int NET_SHARE_PERMISSION_ACCESS_NONE = 0;
 	protected static final int NET_SHARE_PERMISSION_ACCESS_READ = 1;
-	
+
 	@Rule
 	public TestName testName = new TestName();
 
 	/* System current time before run every test */
 	protected long currentTimeMillis = 0;
-	
+
 	@Before
 	public void setUp() {
-		System.out.println(String.format("--------------------Begin test %s#%s",
-				getClass().getName(), testName.getMethodName()));
-		
+		System.out.println(String.format(
+				"--------------------Begin test %s#%s", getClass().getName(),
+				testName.getMethodName()));
+
 		Integer pid = 0;
 
 		// close notepad
@@ -106,12 +107,12 @@ public abstract class BaseTest {
 		sleep(200);
 		currentTimeMillis = System.currentTimeMillis();
 	}
-	
+
 	@After
 	public void tearDown() {
 		System.out.println(String.format(
-				"--------------------End   test %s#%s%n",
-				getClass().getName(), testName.getMethodName()));
+				"--------------------End   test %s#%s%n", getClass().getName(),
+				testName.getMethodName()));
 	}
 
 	protected void assertEquals(int expected, Integer actual) {

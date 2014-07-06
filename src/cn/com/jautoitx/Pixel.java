@@ -10,7 +10,7 @@ import com.sun.jna.platform.win32.WinDef.RECT;
 public class Pixel extends AutoItX {
 	public static final int INVALID_COLOR = -1;
 	public static final int DEFAULT_STEP = 1;
-	
+
 	private Pixel() {
 		// Do nothing
 	}

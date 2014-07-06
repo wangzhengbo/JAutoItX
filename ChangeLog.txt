@@ -1,3 +1,11 @@
+07/06/2014 - 3.3.10.2-1.0.2
+  1. Format source code.
+  2. Change info log to fine log.
+  
+06/22/2014 - 3.3.10.2-1.0.1
+  1. Fixed javadoc encoding problem.
+  2. Fixed some comment problems.
+  
 06/02/2014 - 3.3.10.2-1.0.0
   Add jdk 1.5 support.
   

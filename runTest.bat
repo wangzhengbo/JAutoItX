@@ -1,6 +1,6 @@
 @echo off
 
-set JAutoItX_VERSION=3.3.10.2-1.0.0
+set JAutoItX_VERSION=3.3.10.2-1.0.2
 
 set CLASSPATH=.\lib\commons-io-2.2.jar
 set CLASSPATH=%CLASSPATH%;.\lib\commons-lang3-3.1.jar

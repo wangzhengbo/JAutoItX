@@ -37,7 +37,7 @@ public final class Win extends AutoItX {
 
 	/* Windows is maximized */
 	public static final int WIN_STATE_MAXIMIZED = 32;
-	
+
 	private Win() {
 		// Do nothing
 	}
@@ -395,8 +395,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param hWnd
 	 *            The handle of the window to read.
-	 * @param text
-	 *            The text of the window to read.
 	 * @return Returns a list containing the window classes read if success,
 	 *         returns null if no window matches the criteria.
 	 */
@@ -867,8 +865,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to read.
-	 * @param text
-	 *            The text of the window to read.
 	 * @return Returns the Y coordinate of the window if success, return null if
 	 *         windows is not found or window is minimize.
 	 */
@@ -1134,8 +1130,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to check.
-	 * @param text
-	 *            The text of the window to check.
 	 * @return Returns true if the window is visible, otherwise returns false.
 	 */
 	public static boolean visible(final String title) {
@@ -1172,8 +1166,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to check.
-	 * @param text
-	 *            The text of the window to check.
 	 * @return Returns true if the window is enabled, otherwise returns false.
 	 */
 	public static boolean enabled(final String title) {
@@ -1210,8 +1202,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to check.
-	 * @param text
-	 *            The text of the window to check.
 	 * @return Returns true if the window is minimized, otherwise returns false.
 	 */
 	public static boolean minimized(final String title) {
@@ -1248,8 +1238,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to check.
-	 * @param text
-	 *            The text of the window to check.
 	 * @return Returns true if the window is maximized, otherwise returns false.
 	 */
 	public static boolean maximized(final String title) {
@@ -1559,7 +1547,7 @@ public final class Win extends AutoItX {
 	 * hidden windows, some windows (notably explorer windows) can only be
 	 * terminated using WinClose.
 	 * 
-	 * @param S
+	 * @param hWnd
 	 *            The handle of the window to close.
 	 * @return Returns true if success, returns false if window is not found.
 	 */
@@ -1631,7 +1619,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -1684,7 +1672,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -1743,7 +1731,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -1807,7 +1795,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -1876,7 +1864,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -1950,7 +1938,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -2029,7 +2017,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -2120,7 +2108,7 @@ public final class Win extends AutoItX {
 	 * menus in use today are actually custom written or toolbars "pretending"
 	 * to be menus. This is true for most Microsoft applications.
 	 * 
-	 * @param title
+	 * @param hWnd
 	 *            The handle of the window to read.
 	 * @param item1
 	 *            Text of Menu Item
@@ -2506,8 +2494,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param hWnd
 	 *            The handle of the window to affect.
-	 * @param text
-	 *            The text of the window to affect.
 	 * @param on
 	 *            Determines whether the window should have the "TOPMOST" flag
 	 *            set. true=set on top flag, false = remove on top flag
@@ -2525,8 +2511,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to show.
-	 * @param text
-	 *            The text of the window to show.
 	 * @return Returns true if success, returns false if window is not found.
 	 */
 	public static boolean show(final String title) {
@@ -3221,8 +3205,6 @@ public final class Win extends AutoItX {
 	 * 
 	 * @param title
 	 *            The title of the window to check.
-	 * @param text
-	 *            The text of the window to check.
 	 * @param timeout
 	 *            Timeout in seconds
 	 * @return Returns true if success, returns false if timeout occurred.

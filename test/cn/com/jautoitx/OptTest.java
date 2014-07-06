@@ -689,7 +689,7 @@ public class OptTest extends BaseTest {
 			});
 			thread.start();
 			runNotepad();
-			while(thread.isAlive()) {
+			while (thread.isAlive()) {
 				sleep(100);
 			}
 			Assert.assertTrue(String.format("%d >= 2000", time.value),

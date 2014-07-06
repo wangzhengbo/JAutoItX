@@ -51,7 +51,7 @@ public class TreeView extends AutoItX {
 
 	/* Buffer size for method ControlTreeView */
 	private static int BUF_SIZE = 8 * 1024;
-	
+
 	private TreeView() {
 		// Do nothing
 	}

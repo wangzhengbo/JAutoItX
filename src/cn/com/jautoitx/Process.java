@@ -87,7 +87,7 @@ public class Process extends AutoItX {
 	 * to be unresponsive.
 	 */
 	private static final int REALTIME_PRIORITY_CLASS = 0x00000100;
-	
+
 	private Process() {
 		// Do nothing
 	}
@@ -374,13 +374,6 @@ public class Process extends AutoItX {
 	 *            2 = use for net credentials only
 	 * @param fileName
 	 *            The name of the executable (EXE, BAT, COM, or PIF) to run.
-	 * @param workingDir
-	 *            The working directory.
-	 * @param showFlag
-	 *            The "show" flag of the executed program:<br/>
-	 *            SW_HIDE = Hidden window<br/>
-	 *            SW_MINIMIZE = Minimized window<br/>
-	 *            SW_MAXIMIZE = Maximized window
 	 * @return Returns the PID of the process that was launched if success,
 	 *         returns null if failed.
 	 */
@@ -440,11 +433,6 @@ public class Process extends AutoItX {
 	 *            The name of the executable (EXE, BAT, COM, or PIF) to run.
 	 * @param workingDir
 	 *            The working directory.
-	 * @param showFlag
-	 *            The "show" flag of the executed program:<br/>
-	 *            SW_HIDE = Hidden window<br/>
-	 *            SW_MINIMIZE = Minimized window<br/>
-	 *            SW_MAXIMIZE = Maximized window
 	 * @return Returns the PID of the process that was launched if success,
 	 *         returns null if failed.
 	 */
