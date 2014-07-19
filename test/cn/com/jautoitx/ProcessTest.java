@@ -54,16 +54,16 @@ public class ProcessTest extends BaseTest {
 		int pid = runNotepad();
 
 		// close process by name
-		Process.close(NOTEPAD);
+		Process.close(NOTEPAD_PROC_NAME);
 		sleep(500);
-		Assert.assertNull(Process.exists(NOTEPAD));
+		Assert.assertNull(Process.exists(NOTEPAD_PROC_NAME));
 
 		pid = runNotepad();
 
 		// close process by pid
 		Process.close(pid);
 		sleep(500);
-		Assert.assertNull(Process.exists(NOTEPAD));
+		Assert.assertNull(Process.exists(NOTEPAD_PROC_NAME));
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertNull(Process.exists("notepad.exe"));
 
 		// run notepad
-		int pid = Process.run(NOTEPAD);
+		int pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		Assert.assertEquals(pid, Process.exists("notepad.exe").intValue());
 		Assert.assertTrue(Process.exists(pid));
@@ -107,7 +107,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in default mode
-		int pid = Process.run(NOTEPAD);
+		int pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -119,7 +119,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in hide mode
-		pid = Process.run(NOTEPAD, RunShowFlag.HIDE);
+		pid = Process.run(NOTEPAD_PROC_NAME, RunShowFlag.HIDE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -131,7 +131,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in minimize mode
-		pid = Process.run(NOTEPAD, RunShowFlag.MINIMIZE);
+		pid = Process.run(NOTEPAD_PROC_NAME, RunShowFlag.MINIMIZE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -143,7 +143,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in maximize mode
-		pid = Process.run(NOTEPAD, "C:/", RunShowFlag.MAXIMIZE);
+		pid = Process.run(NOTEPAD_PROC_NAME, "C:/", RunShowFlag.MAXIMIZE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -157,7 +157,7 @@ public class ProcessTest extends BaseTest {
 
 		// run notepad in normal mode
 		final String workingDir = (new File(".")).getCanonicalPath();
-		pid = Process.run(NOTEPAD, workingDir, RunShowFlag.NORMAL);
+		pid = Process.run(NOTEPAD_PROC_NAME, workingDir, RunShowFlag.NORMAL);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -170,7 +170,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		// run notepad in normal mode
-		Assert.assertNull(Process.run(NOTEPAD + "xxx", RunShowFlag.NORMAL));
+		Assert.assertNull(Process.run(NOTEPAD_PROC_NAME + "xxx", RunShowFlag.NORMAL));
 	}
 
 	@Test
@@ -180,11 +180,11 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(Win.exists(NOTEPAD_TITLE));
 
 		Assert.assertNull(Process.runAs(USER_NAME, domain, USER_ERROR_PASSWORD,
-				(Integer) null, NOTEPAD));
+				(Integer) null, NOTEPAD_PROC_NAME));
 
 		// run notepad in default mode
 		int pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(Integer) null, NOTEPAD);
+				(Integer) null, NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -197,7 +197,7 @@ public class ProcessTest extends BaseTest {
 
 		// run notepad in hide mode
 		pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(RunLogonFlag) null, NOTEPAD, RunShowFlag.HIDE);
+				(RunLogonFlag) null, NOTEPAD_PROC_NAME, RunShowFlag.HIDE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -210,7 +210,7 @@ public class ProcessTest extends BaseTest {
 
 		// run notepad in minimize mode
 		pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(RunLogonFlag) null, NOTEPAD, RunShowFlag.MINIMIZE);
+				(RunLogonFlag) null, NOTEPAD_PROC_NAME, RunShowFlag.MINIMIZE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -223,7 +223,7 @@ public class ProcessTest extends BaseTest {
 
 		// run notepad in maximize mode
 		pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(RunLogonFlag) null, NOTEPAD, "C:/", RunShowFlag.MAXIMIZE);
+				(RunLogonFlag) null, NOTEPAD_PROC_NAME, "C:/", RunShowFlag.MAXIMIZE);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -238,7 +238,7 @@ public class ProcessTest extends BaseTest {
 		// run notepad in normal mode
 		final String workingDir = (new File(".")).getCanonicalPath();
 		pid = Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(RunLogonFlag) null, NOTEPAD, workingDir, RunShowFlag.NORMAL);
+				(RunLogonFlag) null, NOTEPAD_PROC_NAME, workingDir, RunShowFlag.NORMAL);
 		Assert.assertTrue(pid > 0);
 		Assert.assertTrue(Win.wait(NOTEPAD_TITLE, 3));
 		Assert.assertTrue(Win.exists(NOTEPAD_TITLE));
@@ -252,7 +252,7 @@ public class ProcessTest extends BaseTest {
 
 		// run notepad in normal mode
 		Assert.assertNull(Process.runAs(USER_NAME, domain, USER_PASSWORD,
-				(RunLogonFlag) null, NOTEPAD + "xxx", RunShowFlag.NORMAL));
+				(RunLogonFlag) null, NOTEPAD_PROC_NAME + "xxx", RunShowFlag.NORMAL));
 	}
 
 	@Test
@@ -266,7 +266,7 @@ public class ProcessTest extends BaseTest {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
 				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, NOTEPAD).getExitCode();
+						USER_PASSWORD, NOTEPAD_PROC_NAME).getExitCode();
 			}
 		});
 		thread.start();
@@ -288,7 +288,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, null, NOTEPAD, RunShowFlag.HIDE)
+						USER_PASSWORD, null, NOTEPAD_PROC_NAME, RunShowFlag.HIDE)
 						.getExitCode();
 			}
 		});
@@ -311,7 +311,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, null, NOTEPAD, RunShowFlag.MINIMIZE)
+						USER_PASSWORD, null, NOTEPAD_PROC_NAME, RunShowFlag.MINIMIZE)
 						.getExitCode();
 			}
 		});
@@ -334,7 +334,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				exitCodeHolder.value = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, null, NOTEPAD, "C:/",
+						USER_PASSWORD, null, NOTEPAD_PROC_NAME, "C:/",
 						RunShowFlag.MAXIMIZE).getExitCode();
 			}
 		});
@@ -362,7 +362,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				RunWaitResult result = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, null, NOTEPAD, workingDir,
+						USER_PASSWORD, null, NOTEPAD_PROC_NAME, workingDir,
 						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();
@@ -393,7 +393,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				RunWaitResult result = Process.runAsWait(USER_NAME, domain,
-						USER_PASSWORD, null, NOTEPAD + "xxx",
+						USER_PASSWORD, null, NOTEPAD_PROC_NAME + "xxx",
 						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();
@@ -413,7 +413,7 @@ public class ProcessTest extends BaseTest {
 		final IntHolder exitCodeHolder = new IntHolder(Integer.MIN_VALUE);
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runWait(NOTEPAD).getExitCode();
+				exitCodeHolder.value = Process.runWait(NOTEPAD_PROC_NAME).getExitCode();
 			}
 		});
 		thread.start();
@@ -434,7 +434,7 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runWait(NOTEPAD,
+				exitCodeHolder.value = Process.runWait(NOTEPAD_PROC_NAME,
 						RunShowFlag.HIDE).getExitCode();
 			}
 		});
@@ -456,7 +456,7 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runWait(NOTEPAD,
+				exitCodeHolder.value = Process.runWait(NOTEPAD_PROC_NAME,
 						RunShowFlag.MINIMIZE).getExitCode();
 			}
 		});
@@ -478,7 +478,7 @@ public class ProcessTest extends BaseTest {
 		exitCodeHolder.value = Integer.MIN_VALUE;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				exitCodeHolder.value = Process.runWait(NOTEPAD, "C:/",
+				exitCodeHolder.value = Process.runWait(NOTEPAD_PROC_NAME, "C:/",
 						RunShowFlag.MAXIMIZE).getExitCode();
 			}
 		});
@@ -505,7 +505,7 @@ public class ProcessTest extends BaseTest {
 		final BooleanHolder errorHolder = new BooleanHolder(true);
 		thread = new Thread(new Runnable() {
 			public void run() {
-				RunWaitResult result = Process.runWait(NOTEPAD, workingDir,
+				RunWaitResult result = Process.runWait(NOTEPAD_PROC_NAME, workingDir,
 						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();
@@ -535,7 +535,7 @@ public class ProcessTest extends BaseTest {
 		errorHolder.value = false;
 		thread = new Thread(new Runnable() {
 			public void run() {
-				RunWaitResult result = Process.runWait(NOTEPAD + "xxx",
+				RunWaitResult result = Process.runWait(NOTEPAD_PROC_NAME + "xxx",
 						RunShowFlag.NORMAL);
 				exitCodeHolder.value = result.getExitCode();
 				errorHolder.value = result.hasError();
@@ -573,7 +573,7 @@ public class ProcessTest extends BaseTest {
 	public void testWait() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
-				Process.wait(NOTEPAD);
+				Process.wait(NOTEPAD_PROC_NAME);
 			}
 		});
 		thread.start();
@@ -593,7 +593,7 @@ public class ProcessTest extends BaseTest {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				long start = System.currentTimeMillis();
-				Process.wait(NOTEPAD, 2);
+				Process.wait(NOTEPAD_PROC_NAME, 2);
 				long end = System.currentTimeMillis();
 				timeHolder.value = (int) (end - start);
 			}
@@ -610,7 +610,7 @@ public class ProcessTest extends BaseTest {
 	@Test
 	public void waitClose() {
 		// run notepad
-		int pid = Process.run(NOTEPAD);
+		int pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		sleep(500);
 		Assert.assertTrue(Win.active(NOTEPAD_TITLE));
@@ -629,14 +629,14 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(thread.isAlive());
 
 		// run notepad
-		pid = Process.run(NOTEPAD);
+		pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		sleep(500);
 		Assert.assertTrue(Win.active(NOTEPAD_TITLE));
 
 		thread = new Thread(new Runnable() {
 			public void run() {
-				Process.waitClose(NOTEPAD);
+				Process.waitClose(NOTEPAD_PROC_NAME);
 			}
 		});
 		thread.start();
@@ -647,7 +647,7 @@ public class ProcessTest extends BaseTest {
 		Assert.assertFalse(thread.isAlive());
 
 		// run notepad
-		pid = Process.run(NOTEPAD);
+		pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertTrue(pid > 0);
 		sleep(500);
 		Assert.assertTrue(Win.active(NOTEPAD_TITLE));

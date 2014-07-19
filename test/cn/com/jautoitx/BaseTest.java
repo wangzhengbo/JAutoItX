@@ -21,6 +21,7 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 
 import com.sun.jna.Native;
+import com.sun.jna.Platform;
 import com.sun.jna.Structure;
 import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Netapi32;
@@ -31,13 +32,15 @@ import com.sun.jna.win32.W32APIOptions;
 
 public abstract class BaseTest {
 	protected static final boolean isZhUserLanguage = "zh"
-			.equalsIgnoreCase(System.getProperty("user.language"));
+			.equalsIgnoreCase(System.getProperty("user.language"))
+			|| "Cp1252"
+					.equalsIgnoreCase(System.getProperty("sun.jnu.encoding"));
 
 	protected static final String SAVE_AS_DIALOG_TITLE = isZhUserLanguage ? "另存为"
 			: "Save As";
 
 	/* Notepad */
-	protected static final String NOTEPAD = "notepad.exe";
+	protected static final String NOTEPAD_PROC_NAME = "notepad.exe";
 	protected static final String NOTEPAAD_CLASS_NAME = "Notepad";
 	protected static final String NOTEPAAD_CLASS_LIST = "Edit\nmsctls_statusbar32\n";
 	protected static final String NOTEPAD_TITLE = isZhUserLanguage ? "无标题 - 记事本"
@@ -50,9 +53,10 @@ public abstract class BaseTest {
 			: "Notepad";
 
 	/* HashMyFiles */
-	protected static final String HASH_MY_FILES = new File(
-			"test/HashMyFiles.exe").getAbsolutePath();
-	protected static final String HASH_MY_FILES_PROC_NAME = "HashMyFiles.exe";
+	protected static final String HASH_MY_FILES_PROC_NAME = "HashMyFiles"
+			+ (Platform.is64Bit() ? "_x64" : "") + ".exe";
+	protected static final String HASH_MY_FILES = new File("test/"
+			+ HASH_MY_FILES_PROC_NAME).getAbsolutePath();
 	protected static final String HASH_MY_FILES_TITLE = "HashMyFiles";
 	protected static final String HASH_MY_FILES_ADD_FILES_TITLE = "Select one or more  filenames to add";
 
@@ -68,6 +72,8 @@ public abstract class BaseTest {
 			: "Commit Charge:";
 	protected static final String STATUS_BAR_TEXT_PHYSICAL_MEMORY = isZhUserLanguage ? "物理内存:"
 			: "Physical Memory:";
+	protected static final String STATUS_BAR_TEXT_MEMORY_USAGE = isZhUserLanguage ? "内存使用:"
+			: "Memory Usage:";
 
 	protected static final String MESSAGE_BOX_OK_BUTTON_TEXT = isZhUserLanguage ? "确定"
 			: "OK";
@@ -90,7 +96,7 @@ public abstract class BaseTest {
 		Integer pid = 0;
 
 		// close notepad
-		while ((pid = Process.exists(NOTEPAD)) != null) {
+		while ((pid = Process.exists(NOTEPAD_PROC_NAME)) != null) {
 			Process.close(pid);
 		}
 
@@ -187,7 +193,7 @@ public abstract class BaseTest {
 
 	protected int runNotepad() {
 		// run notepad
-		Integer pid = Process.run(NOTEPAD);
+		Integer pid = Process.run(NOTEPAD_PROC_NAME);
 		Assert.assertNotNull(pid);
 		Assert.assertTrue(Win.waitActive(NOTEPAD_TITLE, 3));
 		return pid;

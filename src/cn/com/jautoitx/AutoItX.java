@@ -343,7 +343,7 @@ public class AutoItX {
 	public static String hwndToHandle(final HWND hWnd) {
 		return (hWnd == null) ? null : ("0x" + StringUtils.leftPad(Long
 				.toHexString(Pointer.nativeValue(hWnd.getPointer()))
-				.toUpperCase(), 8, '0'));
+				.toUpperCase(), Platform.is64Bit() ? 16 : 8, '0'));
 	}
 
 	protected static interface AutoItXLibrary extends Library {

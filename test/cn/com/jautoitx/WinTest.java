@@ -1104,7 +1104,7 @@ public class WinTest extends BaseTest {
 		sleep(500);
 		Assert.assertFalse(Process.exists(pid));
 
-		Assert.assertFalse(Win.move(NOTEPAD, x + 40, y + 100));
+		Assert.assertFalse(Win.move(NOTEPAD_PROC_NAME, x + 40, y + 100));
 	}
 
 	@Test

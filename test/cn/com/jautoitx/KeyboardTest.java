@@ -27,6 +27,14 @@ public class KeyboardTest extends BaseTest {
 			Assert.assertTrue(Win.wait(SAVE_AS_DIALOG_TITLE, 2));
 			Keyboard.send("^{SPACE}");
 			Keyboard.send(file.getAbsolutePath());
+			// Windows XP
+			Integer index = Control.selectString(TitleBuilder.byActiveWindow(),
+					"ComboBox4", "Unicode");
+			if (index == null) {
+				// Windows 7
+				Control.selectString(TitleBuilder.byActiveWindow(),
+						"ComboBox3", "Unicode");
+			}
 			Keyboard.send("{ENTER}");
 			// send ENTER two times if needed because the reasons for the input
 			// method
@@ -35,8 +43,8 @@ public class KeyboardTest extends BaseTest {
 			// }
 			sleep(500);
 			Assert.assertTrue(file.exists());
-			Assert.assertEquals("1234567890你好", FileUtils.readFileToString(
-					file, isZhUserLanguage ? "GBK" : "UTF-8"));
+			Assert.assertEquals("1234567890你好",
+					FileUtils.readFileToString(file, "Unicode"));
 			Assert.assertTrue(file.delete());
 
 			// run notepad

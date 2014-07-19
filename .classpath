@@ -12,7 +12,7 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.jface.databinding_1.6.200.v20130515-1857.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.jface.text_3.8.101.v20130802-1147.jar"/>
 	<classpathentry kind="lib" path="lib/sigar.jar"/>
-	<classpathentry kind="lib" path="lib/swt-4.3.jar" sourcepath="lib/src.zip"/>
+	<classpathentry kind="lib" path="lib/swt-4.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_15"/>
 </classpath>

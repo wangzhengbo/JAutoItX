@@ -3108,8 +3108,7 @@ public class ControlTest extends BaseTest {
 		// run task manager
 		int pid = Process.run(TASK_MANAGER, "", RunShowFlag.MAXIMIZE);
 		Assert.assertTrue(pid > 0);
-		sleep(1000);
-		Assert.assertTrue(Win.active(TASK_MANAGER_TITLE));
+		Assert.assertTrue(Win.waitActive(TASK_MANAGER_TITLE, 5));
 
 		String processes = Control.statusbarGetText(TASK_MANAGER_TITLE);
 		Assert.assertTrue(processes.startsWith(STATUS_BAR_TEXT_PROCESSES));
@@ -3125,7 +3124,8 @@ public class ControlTest extends BaseTest {
 				null, 3);
 		Assert.assertTrue(commitCharge
 				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
-				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_MEMORY_USAGE));
 
 		// minimize task manager
 		Assert.assertTrue(Win.minimize(TASK_MANAGER_TITLE));
@@ -3134,7 +3134,8 @@ public class ControlTest extends BaseTest {
 		commitCharge = Control.statusbarGetText(TASK_MANAGER_TITLE, null, 3);
 		Assert.assertTrue(commitCharge
 				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
-				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_MEMORY_USAGE));
 
 		// hide task manager
 		Assert.assertTrue(Win.minimize(TASK_MANAGER_TITLE));
@@ -3143,11 +3144,12 @@ public class ControlTest extends BaseTest {
 		commitCharge = Control.statusbarGetText(TASK_MANAGER_TITLE, null, 3);
 		Assert.assertTrue(commitCharge
 				.startsWith(STATUS_BAR_TEXT_COMMIT_CHARGE)
-				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY));
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_PHYSICAL_MEMORY)
+				|| commitCharge.startsWith(STATUS_BAR_TEXT_MEMORY_USAGE));
 
 		// close task manager
 		Process.close(pid);
-		sleep(500);
+		sleep(1000);
 		Assert.assertFalse(Process.exists(pid));
 
 		Assert.assertNull(Control.statusbarGetText(TASK_MANAGER_TITLE));
